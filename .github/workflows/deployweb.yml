@@ -22,7 +22,7 @@ jobs:
   # First job: build and test the application
   build-and-test:
     name: Build and Test
-    runs-on: ubuntu-latest # Use Ubuntu runner for this job
+    runs-on: BOOK-7ISM0MDQ5C # Use Ubuntu runner for this job
 
     steps:
       - uses: actions/checkout@v4
