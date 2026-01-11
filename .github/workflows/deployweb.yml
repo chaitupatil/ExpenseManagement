@@ -6,7 +6,7 @@ on:
   workflow_dispatch: # Allow manual triggering from GitHub UI
   push:
     branches:
-      - main # Run automatically when code is pushed to main branch
+      - master # Run automatically when code is pushed to main branch
 
 # Environment variables used throughout the workflow
 env:
@@ -22,7 +22,7 @@ jobs:
   # First job: build and test the application
   build-and-test:
     name: Build and Test
-    runs-on: self-hosted # Use Ubuntu runner for this job
+    runs-on: ubuntu-latest # Use Ubuntu runner for this job
 
     steps:
       - uses: actions/checkout@v4
