@@ -37,23 +37,23 @@ jobs:
 
       - name: Build
         run: dotnet build ${{ env.SOLUTION_PATH }}
-        --configuration Release
-        --no-restore
+            --configuration Release
+            --no-restore
 
       - name: Test
         run: dotnet test ${{ env.SOLUTION_PATH }}
-        --configuration Release
-        --no-restore
-        --no-build
-        --verbosity normal
+            --configuration Release
+            --no-restore
+            --no-build
+            --verbosity normal
 
 
       - name: Publish
         run: dotnet publish ${{ env.API_PROJECT_PATH }}
-        --configuration Release
-        --no-restore
-        --no-build
-        --property:PublishDir=${{ env.PUBLISH_DIR }}
+            --configuration Release
+            --no-restore
+            --no-build
+            --property:PublishDir=${{ env.PUBLISH_DIR }}
 
     # Store the published output as an artifact for later jobs
       - name: Publish Artifacts
