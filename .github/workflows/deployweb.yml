@@ -36,29 +36,29 @@ jobs:
         run: dotnet restore ${{ env.SOLUTION_PATH }}
 
       - name: Build
-      run: dotnet build ${{ env.SOLUTION_PATH }}
+        run: dotnet build ${{ env.SOLUTION_PATH }}
         --configuration Release
         --no-restore
 
-    - name: Test
-      run: dotnet test ${{ env.SOLUTION_PATH }}
+      - name: Test
+        run: dotnet test ${{ env.SOLUTION_PATH }}
         --configuration Release
         --no-restore
         --no-build
         --verbosity normal
 
 
-    - name: Publish
-      run: dotnet publish ${{ env.API_PROJECT_PATH }}
+      - name: Publish
+        run: dotnet publish ${{ env.API_PROJECT_PATH }}
         --configuration Release
         --no-restore
         --no-build
         --property:PublishDir=${{ env.PUBLISH_DIR }}
 
     # Store the published output as an artifact for later jobs
-    - name: Publish Artifacts
-      uses: actions/upload-artifact@v4
-      with:
+      - name: Publish Artifacts
+        uses: actions/upload-artifact@v4
+        with:
         name: webapp  # Name of the artifact
         path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
